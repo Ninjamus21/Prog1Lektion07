@@ -3,6 +3,10 @@ package opgave02;
 public class Opgave02 {
     public static void main(String[] args) {
         char[] characterArray = getCharacterArray();
+        String vokaler = "aeiouyæøå";
+        int[] vokalerCount = new int[vokaler.length()];
+        beautiPrint(vokalerCount,vokaler,characterArray);
+        leetSpeak(characterArray);
     }
 
     private static char[] getCharacterArray() {
@@ -28,4 +32,54 @@ public class Opgave02 {
                 " op, nej, jeg har ikke alle! det største æg ligger der endnu; hvor længe skal det vare! nu er " +
                 "jeg snart ked af det! og så lagde hun sig igen.").toCharArray();
     }
+
+    public static int[] vokalscanner(char[] characterArray, String vokaler, int[] vokalerCount) {
+        for (char c : characterArray) {
+
+            c = Character.toLowerCase(c);
+            int position = vokaler.indexOf(c);
+
+            if (position != -1) {
+                vokalerCount[position]++;
+            }
+        }
+        return vokalerCount;
+    }
+
+    public static void beautiPrint(int[] vokalerCount, String vokaler, char[] characterArray) {
+       vokalscanner(characterArray,vokaler,vokalerCount);
+        for (int i = 0; i < vokaler.length(); i++) {
+            System.out.println(vokaler.charAt(i) + ": " + vokalerCount[i]);
+        }
+    }
+
+    public static void leetSpeak(char[] characterArray) {
+        for (int index = 0; index < characterArray.length; index++) {
+            switch (Character.toLowerCase(characterArray[index])) {
+                case 'a':
+                    characterArray[index] = '4';
+                    break;
+                case 'b':
+                    characterArray[index] = '6';
+                    break;
+                case 'g':
+                    characterArray[index] = '9';
+                    break;
+                case 'l':
+                    characterArray[index] = '1';
+                    break;
+                case 's':
+                    characterArray[index] = '5';
+                    break;
+                case 't':
+                    characterArray[index] = '+';
+                    break;
+            }
+        }
+        for(char c : characterArray){
+            System.out.print(c);
+        }
+        System.out.println();
+    }
 }
+
