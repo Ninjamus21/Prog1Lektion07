@@ -73,7 +73,7 @@ public class Opgave02 {
                     break;
                 case 't':
                     characterArray[index] = '+';
-                    break;
+                    break;.
             }
         }
         for(char c : characterArray){
