@@ -2,7 +2,7 @@ package opgave03;
 
 public class Opgave03 {
     public static void main(String[] args) {
-        System.out.println(weekday(4, 14));
+        weekDayArray(0,2);
     }
 
     public static String weekday(int dayOfWeek, int daysInTheFuture) {
@@ -23,4 +23,10 @@ public class Opgave03 {
             return "Søndag";
         }
     }
-}
+    public static void weekDayArray(int acctualDay, int daysInTheFuture){
+        String[] dayOfTheWeek = {"Mandag","tirsdag","onsdag","torsdag","fredag","lørdag","søndag"};
+         acctualDay = (acctualDay + daysInTheFuture) % 7;
+        System.out.println(dayOfTheWeek[acctualDay]);
+
+    }
+} //done
